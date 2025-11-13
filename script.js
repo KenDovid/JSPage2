@@ -134,17 +134,17 @@ function validarYDescargar() {
     alert("¡Su información ha sido registrada!");
   }
 }
-
 // Actualizar progreso
 function actualizarProgreso() {
   let completados = 0;
-  const total = campos.length; // contamos todos los campos, incluido el checkbox
+  const total = campos.length - 1; // excluimos el checkbox "terminos"
 
   campos.forEach((id) => {
     const campo = document.getElementById(id);
 
     if (campo.type === "checkbox") {
-      if (campo.checked) completados++;
+      // no se incluye en el conteo
+      return;
     } 
     else if (campo.tagName === "SELECT") {
       if (campo.value !== "Seleccionar...") completados++;
@@ -154,20 +154,19 @@ function actualizarProgreso() {
     }
   });
 
-  // Calcular porcentaje real
+  // Calcular porcentaje
   const porcentaje = Math.round((completados / total) * 100);
 
-  // Actualizar ancho de la barra
+  // Actualizar la barra
   barra.style.width = porcentaje + "%";
 
   // Colores dinámicos según avance
-  if (porcentaje < 40) barra.style.backgroundColor = "#f87171";  // rojo suave
+  if (porcentaje < 40) barra.style.backgroundColor = "#f87171";   // rojo suave
   else if (porcentaje < 80) barra.style.backgroundColor = "#facc15"; // amarillo
   else barra.style.backgroundColor = "#4ade80"; // verde
 }
 
-// Escuchar cambios en todos los campos
-
+// 🔄 Escuchar cambios en los campos
 campos.forEach((id) => {
   const campo = document.getElementById(id);
 
@@ -178,13 +177,12 @@ campos.forEach((id) => {
   }
 });
 
-//Reiniciar barra al limpiar el formulario
-
+// 🧹 Reiniciar barra al limpiar el formulario
 btnBorrar.addEventListener("click", () => {
   setTimeout(() => {
     actualizarProgreso();
-  }, 100); // delay breve para esperar que reset() borre todo
+  }, 100); // pequeño retraso para que reset() borre los campos primero
 });
 
-// Inicializar barra al cargar la página
+// 🚀 Inicializar progreso al cargar la página
 document.addEventListener("DOMContentLoaded", actualizarProgreso);
