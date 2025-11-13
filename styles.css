@@ -1,143 +1,180 @@
     /* Fondo general */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #7fd7d7, #8cc2f0);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #7fd7d7, #8cc2f0);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* Encabezado */
-header {
-  background-color: #6d66f5;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-weight: bold;
-}
+    /* Encabezado */
+    header {
+      background-color: #6d66f5;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-weight: bold;
+    }
 
-/* Contenedor principal */
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* Contenedor principal */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Formulario */
-.formulario {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 320px;
-}
+    /* Formulario */
+    .formulario {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 320px;
+    }
 
-.formulario h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
+    .formulario h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-label {
-  display: block;
-  margin-top: 0.8rem;
-  font-weight: 600;
-}
+    label {
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
 
-input, select, textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  box-sizing: border-box;
-}
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
 
-textarea {
-  resize: none;
-  height: 60px;
-}
+    textarea {
+      resize: none;
+      height: 60px;
+    }
 
-.contador {
-  font-size: 0.8rem;
-  color: #777;
-  text-align: right;
-  margin-top: 0.2rem;
-}
+    .contador {
+      font-size: 0.8rem;
+      color: #777;
+      text-align: right;
+      margin-top: 0.2rem;
+    }
 
-/* Términos */
-.terminos {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
+    /* Términos */
+    .terminos {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
 
-/* Botones */
-.botones {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-}
+    /* Botones */
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
 
-button {
-  flex: 1;
-  padding: 0.6rem;
-  margin: 0 0.3rem;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
-}
+    button {
+      flex: 1;
+      padding: 0.6rem;
+      margin: 0 0.3rem;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
 
-.enviar {
-  background-color: #6d66f5;
-}
+    .enviar {
+      background-color: #6d66f5;
+    }
 
-.borrar {
-  background-color: #7c7cff;
-}
+    .borrar {
+      background-color: #7c7cff;
+    }
 
-button:hover {
-  transform: scale(1.05);
-}
+    button:hover {
+      transform: scale(1.05);
+    }
 
-/* Pie de página */
-footer {
-  background-color: #6d66f5;
-  color: white;
-  text-align: center;
-  padding: 0.6rem;
-  font-size: 0.85rem;
-}
+    /* Pie de página */
+    footer {
+      background-color: #6d66f5;
+      color: white;
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+    }
 
-/* Estilos para los mensajes de error */
-.error {
-  color: #e63946; /* rojo elegante */
-  font-size: 0.85rem;
-  margin-top: 0.2rem;
-  height: 14px; /* mantiene el espacio aunque no haya error */
-  transition: all 0.3s ease;
-}
+    /* Estilos para los mensajes de error */
+    .error {
+      color: #e63946;
+      /* rojo elegante */
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+      height: 14px;
+      /* mantiene el espacio aunque no haya error */
+      transition: all 0.3s ease;
+    }
 
-/* Si quieres que resalten más, puedes agregar: */
-input:invalid,
-select:invalid,
-textarea:invalid {
-  border-color: #e63946;
-}
+    /* Si quieres que resalten más, puedes agregar: */
+    input:invalid,
+    select:invalid,
+    textarea:invalid {
+      border-color: #e63946;
+    }
 
-/* (opcional) efecto animado para cuando aparezcan los errores */
-.error:not(:empty) {
-  animation: shake 0.25s ease-in-out;
-}
+    /* (opcional) efecto animado para cuando aparezcan los errores */
+    .error:not(:empty) {
+      animation: shake 0.25s ease-in-out;
+    }
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-3px); }
-  50% { transform: translateX(3px); }
-  75% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
-}
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-3px);
+      }
+
+      50% {
+        transform: translateX(3px);
+      }
+
+      75% {
+        transform: translateX(-2px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+
+    /* BARRA DE PROGRESO */
+
+    .progreso {
+      margin-top: 15px;
+      height: 15px;
+      background-color: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+
+    }
+
+    .barra {
+      height: 100%;
+      width: 0%;
+      background-color: #6C63FF;
+      transition: width 0.3s;
+    }

@@ -1,4 +1,16 @@
 const form = document.getElementById("formRegistro");
+const campos = [
+  "nombre",
+  "apellido",
+  "email",
+  "edad",
+  "fechaNacimiento", 
+  "genero",
+  "pais",
+  "descripcion", 
+  "terminos" 
+]
+const barra =  document.getElementById("barra")
 const descripcion = document.getElementById("descripcion");
 const contador = document.getElementById("contador");
 const btnEnviar = document.getElementById("btnEnviar");
@@ -122,3 +134,57 @@ function validarYDescargar() {
     alert("¡Su información ha sido registrada!");
   }
 }
+
+// Actualizar progreso
+function actualizarProgreso() {
+  let completados = 0;
+  const total = campos.length; // contamos todos los campos, incluido el checkbox
+
+  campos.forEach((id) => {
+    const campo = document.getElementById(id);
+
+    if (campo.type === "checkbox") {
+      if (campo.checked) completados++;
+    } 
+    else if (campo.tagName === "SELECT") {
+      if (campo.value !== "Seleccionar...") completados++;
+    } 
+    else if (campo.value && campo.value.trim() !== "") {
+      completados++;
+    }
+  });
+
+  // Calcular porcentaje real
+  const porcentaje = Math.round((completados / total) * 100);
+
+  // Actualizar ancho de la barra
+  barra.style.width = porcentaje + "%";
+
+  // Colores dinámicos según avance
+  if (porcentaje < 40) barra.style.backgroundColor = "#f87171";  // rojo suave
+  else if (porcentaje < 80) barra.style.backgroundColor = "#facc15"; // amarillo
+  else barra.style.backgroundColor = "#4ade80"; // verde
+}
+
+// Escuchar cambios en todos los campos
+
+campos.forEach((id) => {
+  const campo = document.getElementById(id);
+
+  if (campo.type === "checkbox" || campo.tagName === "SELECT") {
+    campo.addEventListener("change", actualizarProgreso);
+  } else {
+    campo.addEventListener("input", actualizarProgreso);
+  }
+});
+
+//Reiniciar barra al limpiar el formulario
+
+btnBorrar.addEventListener("click", () => {
+  setTimeout(() => {
+    actualizarProgreso();
+  }, 100); // delay breve para esperar que reset() borre todo
+});
+
+// Inicializar barra al cargar la página
+document.addEventListener("DOMContentLoaded", actualizarProgreso);
